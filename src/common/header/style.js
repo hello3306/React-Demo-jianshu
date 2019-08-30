@@ -121,4 +121,42 @@ export const SearchWrapper = styled.div`
     }
 `;
 
+export const SearcInfo = styled.div`
+        position:absolute;
+        width:240px;
+        left:0;
+        top:56px;
+        padding:0 20px;
+        background:#fff;
+
+        box-shadow:0 0 8px rgba(0,0,0,.2);
+`;
+export const SearcInfoTitle = styled.div`
+        margin-top:20px;
+        margin-bottom:15px;
+        line-height:20px;
+        font-size:14px;
+        color:#969696;
+`;
+export const SearcInfoSwitch = styled.span`
+        float:right;
+        font-size:12px;
+        color:#969696;
+`;
+export const SearcInfoItem = styled.a`
+        display:block;
+        float:left;
+        font-size:12px;
+        color:#787878;
+        padding: 0 5px;
+        line-height:20px;
+        border:1px solid #ddd;
+        border-radius:3px;
+        margin-right:10px;
+        margin-bottom:15px;
+`;
+export const SearcInfoList = styled.div`
+        overflow:hidden;
+`;
+
 

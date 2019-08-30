@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from "react-redux";
-import  { actionCreate} from "./store";
+import { actionCreate } from "./store";
 import {
     HeaderWrapper
     , Logo
@@ -11,9 +11,34 @@ import {
     , Addition
     , Button
     , SearchWrapper
+    , SearcInfo
+    , SearcInfoTitle
+    , SearcInfoSwitch
+    , SearcInfoItem
+    , SearcInfoList
 } from './style';
 
+const getListArea=(show)=>{
+    if(show){
+        return (
+            <SearcInfo>
+            <SearcInfoTitle>
+                热门搜索
+                <SearcInfoSwitch>换一批</SearcInfoSwitch>
+            </SearcInfoTitle>
+            <SearcInfoList>
+            <SearcInfoItem>教育</SearcInfoItem>
+            <SearcInfoItem>教育</SearcInfoItem>
+            <SearcInfoItem>教育</SearcInfoItem>
+            <SearcInfoItem>教育</SearcInfoItem>
+            </SearcInfoList>
+        </SearcInfo>
+        )
+    }else{
+        return null;
+    }
 
+}
 
 const Header = (props) => {
     return (
@@ -45,6 +70,9 @@ const Header = (props) => {
                     >
                         <i className={props.focused ? 'focused2 iconfont' : 'iconfont'}>&#xe62b;</i>
                     </CSSTransition>
+
+                   {getListArea(props.focused)}
+
                 </SearchWrapper>
                 {/* 搜索框 end */}
 
@@ -59,7 +87,8 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.header.focused
+        focused: state.getIn(['header', 'focused'])
+        // state.get('header').get('focused')
     }
 }
 
