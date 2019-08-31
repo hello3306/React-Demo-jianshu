@@ -21,11 +21,11 @@ import {
 
 
 class Header extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
   render() {
-    const { focused, handleInputFocus, handleInputBlur } = this.props;
+    const { focused, handleInputFocus, handleInputBlur, list } = this.props;
     return (
       <HeaderWrapper>
         <Logo href='/' />
@@ -44,7 +44,7 @@ class Header extends Component {
               classNames="slide"
             >
               <NavSearch
-                onFocus={handleInputFocus}
+                onFocus={() => handleInputFocus(list)}
                 onBlur={handleInputBlur}
                 className={focused ? 'focused' : ''}></NavSearch>
             </CSSTransition>
@@ -53,7 +53,7 @@ class Header extends Component {
               timeout={200}
               classNames="icon"
             >
-              <i className={focused ? 'focused2 iconfont' : 'iconfont'}>&#xe62b;</i>
+              <i className={focused ? 'focused2 iconfont zoom' : 'iconfont zoom'}>&#xe62b;</i>
             </CSSTransition>
 
             {this.getListArea()}
@@ -90,7 +90,15 @@ class Header extends Component {
         >
           <SearcInfoTitle>
             热门搜索
-             <SearcInfoSwitch onClick={() => handleChangePage(page, totalPage)}>换一批</SearcInfoSwitch>
+             <SearcInfoSwitch
+              onClick={() => handleChangePage(page, totalPage, this.spinIcon)}>
+              <i
+                ref={(icon) => {
+                  this.spinIcon = icon
+                }}
+                className="iconfont spin">&#xe853;</i>
+              换一批
+               </SearcInfoSwitch>
           </SearcInfoTitle>
           <SearcInfoList>
             {pageList}
@@ -119,9 +127,11 @@ const mapStateToProps = (state) => {
 
 const mapDispathToProps = (dispatch) => {
   return {
-    handleInputFocus() {
+    handleInputFocus(list) {
+      if (list.size === 0) {
+        dispatch(actionCreate.getList())
+      }
       dispatch(actionCreate.searchFocus());
-      dispatch(actionCreate.getList())
     },
     handleInputBlur() {
       const action = actionCreate.searchBlur();
@@ -135,8 +145,14 @@ const mapDispathToProps = (dispatch) => {
       const action = actionCreate.mouseLeave();
       dispatch(action)
     },
-    handleChangePage(page, totalPage) {
-
+    handleChangePage(page, totalPage, spinIcon) {
+      let originAngle = spinIcon.style.transform.replace(/[^0-9]/ig, '');
+      if (originAngle) {
+        originAngle = parseInt(originAngle, 10);
+      } else {
+        originAngle = 0
+      }
+      spinIcon.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
       if (page < totalPage) {
         dispatch(actionCreate.changePage(page + 1));
       } else {

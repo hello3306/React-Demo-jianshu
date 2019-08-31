@@ -106,7 +106,7 @@ export const Button = styled.div`
 export const SearchWrapper = styled.div`
     float:left;
     position:relative; 
-    .iconfont{
+    .zoom{
         position:absolute;
         right:5px;
         bottom:3px;
@@ -137,11 +137,22 @@ export const SearcInfoTitle = styled.div`
         line-height:20px;
         font-size:14px;
         color:#969696;
+        
 `;
 export const SearcInfoSwitch = styled.span`
         float:right;
         font-size:12px;
         color:#969696;
+        cursor:pointer;
+        .spin{
+            dispaly:block;
+            float:left;
+            font-size:12px;
+            margin-right:2px;
+            transition:all .3s ease-in;
+            transform: rotate(0deg);
+            transform-origin:center center;
+        }
 `;
 export const SearcInfoItem = styled.a`
         display:block;
