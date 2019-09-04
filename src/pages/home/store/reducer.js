@@ -52,7 +52,56 @@ const defaultState = fromJS({
             desc:'如果每只狗，都有注定的一位主人，那么它的运气真的很好的，不是你选中了它，而是它在万千人群中，选中了你。” 我从来没养过狗，这是第一次养狗。 跟...',
             imgUrl: '//upload-images.jianshu.io/upload_images/1464364-6de002ec989a92e4.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
         },
-    ]
+    ],
+    recommendList:[
+        {
+            id:1,
+            imgUrl:'http://cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png'
+        },
+        {
+            id:2,
+            imgUrl:'http://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png'
+        },
+        {
+            id:3,
+            imgUrl:'http://cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png'
+        },
+        {
+            id:4,
+            imgUrl:'http://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'
+        },
+    ],
+    writerList:[
+        {
+            id:1,
+            img:'',
+            name:'',
+            info:''
+            
+        },
+        {
+            id:2,
+            img:'',
+            name:'',
+            info:''
+            
+        },
+        {
+            id:3,
+            img:'',
+            name:'',
+            info:''
+            
+        },
+        {
+            id:4,
+            img:'',
+            name:'',
+            info:''
+            
+        },
+        
+    ],
 })
 
 
