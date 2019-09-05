@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
-import { WriterWrapper, WriterItem } from '../style';
+import { WriterWrpper, WriterItem,WriterInfo } from '../style';
 import { connect } from "react-redux";
 class Writer extends Component {
     render() {
+        const { writerList } = this.props;
         return (
-            <WriterWrapper>
-                <WriterItem>
+            <WriterWrpper>
+                {writerList.map((item) => {
+                    return (
+                    <WriterItem key={item.get('id')}>
+                        <img  className='writerImg' alt='' src={item.get('img')} />
+                        <WriterInfo>
+                        <h3 className="title">{item.get('name')}</h3>
+                        <p className="desc">{item.get('info')}</p>
+                        </WriterInfo>
+                    </WriterItem>
+                    )
 
-                </WriterItem>
-            </WriterWrapper>
+                })}
+
+            </WriterWrpper>
         )
     }
 }

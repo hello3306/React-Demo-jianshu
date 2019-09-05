@@ -91,14 +91,44 @@ export const RecommendWrpper = styled.div`
 
 `;
 export const RecommendItem = styled.div`
-    width:280px;
+    width:100%;
     height:50px;
-    background:url(${(props)=>props.imgUrl});
+    margin-bottom: 6px;
+    background:url(${(props) => props.imgUrl});
     background-size:contain;
 
 `;
 export const WriterWrpper = styled.div`
     margin:30px 0;
     width:280px;
+    border-bottom:1px solid #dcdcdc;
+`;
+export const WriterItem = styled.div`
+    overflow:hidden;
+    padding:10px 0;
+    
+
+    .writerImg{
+        border-radius:50px;
+        width:48px;
+        height:48px;
+        display:block;
+        float:left;
+    }
 
 `;
+export const WriterInfo = styled.div`
+
+    margin-left:58px;
+    .title{
+        line-height:27px;
+        font-size:15px;
+        color:#333;
+    }
+    .desc{
+        line-height:24px;
+        font-size:13px;
+        color:#999;
+    }
+`;
+

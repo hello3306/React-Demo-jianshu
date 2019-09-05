@@ -1,3 +1,5 @@
 import reducer from './reducer';
+import * as actionCreate from './actionCreators';
+import * as actionType from './actionType';
 
-export { reducer };
+export { reducer,actionCreate,actionType };

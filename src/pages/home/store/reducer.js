@@ -1,103 +1,39 @@
 // import * as actionType from "./actionType";
 
 import { fromJS } from 'immutable';
+import * as actionType from "./actionType";
 
 const defaultState = fromJS({
-    topicList: [
-        {
-            id: 1,
-            title: '社会热点',
-            imgUrl: 'https://upload-images.jianshu.io/upload_images/3301720-db890fabf626e0ac.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp'
-        },
-        {
-            id: 2,
-            title: '手绘',
-            imgUrl: 'https://upload-images.jianshu.io/upload_images/3301720-db890fabf626e0ac.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp'
-        },
-        {
-            id: 3,
-            title: '时事政治',
-            imgUrl: 'https://upload-images.jianshu.io/upload_images/3301720-db890fabf626e0ac.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp'
-        },
-
-    ],
-    articleList:[
-        {
-            id: 1,
-            title: '简书一年，我出版了人生第一本书——给想出书的朋友们',
-            desc:'翻看文集，才发现来到简书已经一年了。 第一篇文章发表与2017年7月24日，从那时起，我便开始了在简书定期写作更新的历程。至今总共发布了一百多篇...',
-            imgUrl: '//upload-images.jianshu.io/upload_images/5303650-16bd31b30bff0a71.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-        },
-        {
-            id: 2,
-            title: '【原创】我初来上海，如何从月薪2000到月入过万的？',
-            desc:'1. “你必须非常努力，才能看起来毫不费力。”我看很多人把这句话当成座右铭，不知是否理解了其中的深意。 我刚来上海时，本想跟着好友Tommy工作...',
-            imgUrl: '//upload-images.jianshu.io/upload_images/277382-0aee37a88701a0f1.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-        },
-        {
-            id: 3,
-            title: '做一名快乐的乡村教师',
-            desc:'做一名快乐的乡村教师 如今，人们从事的职业有“三百六十行”之多。但不管你选择什么职业，最好是根据你自己所学专业、兴趣爱好，选择适合自己而喜欢的职...',
-            imgUrl: '//upload-images.jianshu.io/upload_images/9136691-f5a7368989e6dc6d.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-        },
-        {
-            id: 4,
-            title: '54岁时，我终于圆了大学本科梦',
-            desc:'戴建东 刊于2019年7月1日《金华日报》 毕业了，五年多时间，一千八百多个日日夜夜的伏案苦读，我这名中学生，终于换来了中国人民大学网络教育学院...',
-            imgUrl: 'https://upload-images.jianshu.io/upload_images/6293121-be0cc96cbf4fb03f.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-        },
-        {
-            id: 5,
-            title: '养一条自来狗是什么体验',
-            desc:'如果每只狗，都有注定的一位主人，那么它的运气真的很好的，不是你选中了它，而是它在万千人群中，选中了你。” 我从来没养过狗，这是第一次养狗。 跟...',
-            imgUrl: '//upload-images.jianshu.io/upload_images/1464364-6de002ec989a92e4.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-        },
-    ],
-    recommendList:[
-        {
-            id:1,
-            imgUrl:'http://cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png'
-        },
-        {
-            id:2,
-            imgUrl:'http://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png'
-        },
-        {
-            id:3,
-            imgUrl:'http://cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png'
-        },
-        {
-            id:4,
-            imgUrl:'http://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'
-        },
-    ],
+    topicList: [],
+    articleList:[],
+    recommendList:[],
     writerList:[
         {
             id:1,
-            img:'',
-            name:'',
-            info:''
+            img:'http://upload.jianshu.io/users/upload_avatars/4263857/34d7b217-7338-48fe-81a1-98367fecdbee.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+            name:'王小麦',
+            info:'写了137.4k字 · 40.1k喜欢'
             
         },
         {
             id:2,
-            img:'',
-            name:'',
-            info:''
+            img:'http://upload.jianshu.io/users/upload_avatars/301940/189d69dd-af7c-4290-9e2c-89e98acf3603.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+            name:'卢璐说',
+            info:'写了1205k字 · 26k喜欢'
             
         },
         {
             id:3,
-            img:'',
-            name:'',
-            info:''
+            img:'http://upload.jianshu.io/users/upload_avatars/2558050/7761b285-2805-4534-9870-ba7dcc7538ec.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+            name:'阿栈',
+            info:'写了470.4k字 · 1.5k喜欢'
             
         },
         {
             id:4,
-            img:'',
-            name:'',
-            info:''
+            img:'http://upload.jianshu.io/users/upload_avatars/3136195/484e32c3504a.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+            name:' 梅拾璎',
+            info:'写了276.2k字 · 27.1k喜欢'
             
         },
         
@@ -108,6 +44,12 @@ const defaultState = fromJS({
 export default (state = defaultState, action) => {
 
     switch (action.type) {
+        case actionType.CHANGE_HOME_DATA:
+           return state.merge({
+                topicList:fromJS(action.topicList),
+                articleList:fromJS(action.articleList),
+                recommendList:fromJS(action.recommendList)
+            })
         default:
             return state;
     }
