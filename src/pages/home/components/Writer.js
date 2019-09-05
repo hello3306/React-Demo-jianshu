@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { WriterWrpper, WriterItem,WriterInfo } from '../style';
 import { connect } from "react-redux";
-class Writer extends Component {
+class Writer extends PureComponent {
     render() {
         const { writerList } = this.props;
         return (
