@@ -7,29 +7,29 @@ import { Link } from "react-router-dom";
 
 class List extends PureComponent {
   render() {
-    const { articleList, getMoreList,page } = this.props;
+    const { articleList, getMoreList, page } = this.props;
 
     return (
       <div>
         {
-          articleList.map((item,index) => {
+          articleList.map((item, index) => {
             return (
               <Link key={index} to="/detail">
-              <ListItem > 
-                <img
-                  alt=''
-                  className="itemImg"
-                  src={item.get('imgUrl')} />
-                <ListInfo>
-                  <h3 className="title">{item.get('title')}</h3>
-                  <p className="desc">{item.get('desc')}</p>
-                </ListInfo>
-              </ListItem>
+                <ListItem >
+                  <img
+                    alt=''
+                    className="itemImg"
+                    src={item.get('imgUrl')} />
+                  <ListInfo>
+                    <h3 className="title">{item.get('title')}</h3>
+                    <p className="desc">{item.get('desc')}</p>
+                  </ListInfo>
+                </ListItem>
               </Link>
-              );
+            );
           })
         }
-        <LoadMore onClick={()=>getMoreList(page)}>加载更多</LoadMore>
+        <LoadMore onClick={() => getMoreList(page)}>加载更多</LoadMore>
       </div>
 
 
@@ -39,10 +39,10 @@ class List extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     articleList: state.getIn(['home', 'articleList']),
-    page:state.getIn(['home'],'articlePage')
-    
+    page: state.getIn(['home'], 'articlePage')
+
   }
- 
+
 }
 const mapDispathToProps = (dispatch) => ({
   getMoreList(page) {

@@ -17,7 +17,7 @@ class Home extends PureComponent {
           <img
             alt=""
             className='banner-img'
-            src="https://upload-images.jianshu.io/upload_images/1417131-52d1bdc6e19156e5.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp" />
+            src="http://tva1.sinaimg.cn/large/007X8olVly1g6oq1d0hv7j30xc0m8acu.jpg" />
           <Topic />
           <List />
         </HomeLeft>
