@@ -1,35 +1,39 @@
 import React, { PureComponent } from 'react';
 import { DetailWrapper, Header, Content } from './style';
+import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import { actionCreate } from "./store";
 
 class Detail extends PureComponent {
-    render() {
-        return (
-            <DetailWrapper>
-                <Header>简书一年，我找到了一份好工作</Header>
-                <Content>
-                    {this.props.content}
-                </Content>
-            </DetailWrapper>
-        )
-    }
+	render() {
+		console.log(this.props)
+		return (
+			
+			<DetailWrapper>
+				<Header>{this.props.title}</Header>
+				<Content 
+					dangerouslySetInnerHTML={{__html: this.props.content}}
+				/>
+			</DetailWrapper>
+		)
+	}
 
-    componentDidMount() {
-        this.props.getContents()
-      }
+	componentDidMount() {
+		this.props.getDetail(this.props.id);
+	}
 }
-const mapStateToProps = (state) => {
-    return {
-      content: state.getIn(['detail', 'content'])
-    }
-  
-  }
-  const mapDispathToProps = (dispatch) => ({
-    getContents(){
-        const action = actionCreate.getDetailContent();
-        dispatch(action);
-    }
 
-  })
-  export default connect(mapStateToProps, mapDispathToProps)(Detail);
+const mapState = (state) => ({
+	title: state.getIn(['detail', 'title']),
+	content: state.getIn(['detail', 'content']),
+	id:0
+});
+
+const mapDispatch = (dispatch) => ({
+	getDetail(id) {
+
+		dispatch(actionCreate.getDetailContent(id));
+	}
+});
+
+export default connect(mapState, mapDispatch)(withRouter(Detail));

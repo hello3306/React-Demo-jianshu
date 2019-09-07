@@ -3,18 +3,20 @@ import axios from "axios";
 import * as actionType from "./actionType";
 
 
-const getContent = (result) => (
+const getContent = (title, content) => (
     {
         type: actionType.GET_CONTENT,
-        content: result
+        content,
+        title
     });
 
-export const getDetailContent = () => {
+export const getDetailContent = (id) => {
     return (dispatch) => {
-        axios.get('/api/detail.json').then((res) => {
-            const result = res.data.data.content;
-            const action = getContent(result);
-            dispatch(action);
+        console.log(id)
+        axios.get('/api/detail.json?id='+id).then((res) => {
+            const result = res.data.data;
+            console.log(result)
+			dispatch(getContent(result.title, result.content));
         }).catch((err) => {
             console.log(err)
         })
